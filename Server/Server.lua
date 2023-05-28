@@ -3,15 +3,50 @@
 -- Shared Emotes Syncing  ---------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
+
 RegisterServerEvent("ServerEmoteRequest")
-AddEventHandler("ServerEmoteRequest", function(target, emotename, etype)
-	TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype)
+AddEventHandler("ServerEmoteRequest", function(source, target, emotename, etype)
+    if target == -1 then
+        return
+    end
+
+    local sourcePed = GetPlayerPed(source)
+    local targetPed = GetPlayerPed(target)
+
+    -- Check if the source and target entities are valid
+    if DoesEntityExist(sourcePed) and DoesEntityExist(targetPed) then
+        local sourceCoords = GetEntityCoords(sourcePed)
+        local targetCoords = GetEntityCoords(targetPed)
+
+        local distance = #(sourceCoords - targetCoords)
+
+        if distance <= 15 then
+            TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype)
+        end
+    end
 end)
 
-RegisterServerEvent("ServerValidEmote") 
-AddEventHandler("ServerValidEmote", function(target, requestedemote, otheremote)
-	TriggerClientEvent("SyncPlayEmote", source, otheremote, source)
-	TriggerClientEvent("SyncPlayEmoteSource", target, requestedemote)
+RegisterServerEvent("ServerValidEmote")
+AddEventHandler("ServerValidEmote", function(source, target, requestedemote, otheremote)
+    if target == -1 then
+        return
+    end
+
+    local sourcePed = GetPlayerPed(source)
+    local targetPed = GetPlayerPed(target)
+
+    -- Check if the source and target entities are valid
+    if DoesEntityExist(sourcePed) and DoesEntityExist(targetPed) then
+        local sourceCoords = GetEntityCoords(sourcePed)
+        local targetCoords = GetEntityCoords(targetPed)
+
+        local distance = #(sourceCoords - targetCoords)
+
+        if distance <= 15 then
+            TriggerClientEvent("SyncPlayEmote", target, otheremote, source)
+            TriggerClientEvent("SyncPlayEmoteSource", target, requestedemote)
+        end
+    end
 end)
 
 -----------------------------------------------------------------------------------------------------
