@@ -5,8 +5,7 @@ lua54 'yes'
 
 client_scripts {
 	'NativeUI.lua',
-	'Config.lua',
-	'Client/*.lua'
+	'client/*.lua'
 }
 
 server_scripts {
