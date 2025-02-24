@@ -25,6 +25,8 @@ For extra protection of your FiveM server, we highly recommend **[FiveGuard](htt
 
 A huge shout-out to these developers for their contributions and fixes:
 
+[Demo4889](https://github.com/Demo4889)
+
 [1zetsubou](https://github.com/1zetsubou)
 
 [418Gaming](https://github.com/418Gaming)
