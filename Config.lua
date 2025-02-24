@@ -1,42 +1,57 @@
-Config = {
--- Change the language of the menu here!.
--- Note fr and de are google translated, if you would like to help out with translation / just fix it for your server check below and change translations yourself
--- try en, fr, de or sv.
-	MenuLanguage = 'en',	
--- Set this to true to enable some extra prints
-	DebugDisplay = false,
--- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
-	EnableXtoCancel = true,
--- Set this to true if you want to disarm the player when they play an emote.
-	DisarmPlayer= false,
--- Set this if you really wanna disable emotes in cars, as of 1.7.2 they only play the upper body part if in vehicle
-    AllowedInCars = true,
--- You can disable the (F3) menu here / change the keybind.
-	MenuKeybindEnabled = true,
-	MenuKeybind = 170, -- Get the button number here https://docs.fivem.net/game-references/controls/
--- You can disable the Favorite emote keybinding here.
-	FavKeybindEnabled = true,
-	FavKeybind = 171, -- Get the button number here https://docs.fivem.net/game-references/controls/
--- You can change the header image for the f3 menu here
--- Use a 512 x 128 image!
--- NOte this might cause an issue of the image getting stuck on peoples screens
-	CustomMenuEnabled = false,
-	MenuImage = "https://i.imgur.com/kgzvDwQ.png",
--- You can change the menu position here
-	MenuPosition = "right", -- (left, right)
--- You can disable the Ragdoll keybinding here.
-	RagdollEnabled = true,
-	RagdollKeybind = 303, -- Get the button number here https://docs.fivem.net/game-references/controls/
--- You can disable the Facial Expressions menu here.
-	ExpressionsEnabled = true,
--- You can disable the Walking Styles menu here.
-	WalkingStylesEnabled = true,	
--- You can disable the Shared Emotes here.
-    SharedEmotesEnabled = true,
-    CheckForUpdates = true,
--- If you have the SQL imported enable this to turn on keybinding.
-    SqlKeybinding = true,
-}
+Config = {}
+
+Config.MenuLanguage = 'en' -- 'en', 'fr', 'de', 'sv'
+
+Config.NotifySystem = 'ox'  --  'esx', 'ox', 'custom' (custom = use Config.CustomNotify)
+
+Config.EnableXtoCancel = true --  if false = Use /e c to cancel emotes
+
+Config.DisarmPlayer = false -- Disarm player when playing an emote
+
+Config.AllowedInCars = true -- Disable emotes in cars
+
+Config.MenuPosition = "right" -- 'left', 'right'
+
+Config.MenuKeybindEnabled = true -- Enable/disable (F3) menu keybind
+Config.MenuKeybind = 170
+-- Button numbers: https://docs.fivem.net/game-references/controls/
+
+Config.FavKeybindEnabled = true -- Enable/disable Favorite emote keybind
+Config.FavKeybind = 171
+-- Button numbers: https://docs.fivem.net/game-references/controls/
+
+Config.CustomMenuEnabled = false -- Custom header image for the F3 menu (512 x 128)
+Config.MenuImage = "https://i.imgur.com/kgzvDwQ.png"
+
+Config.RagdollEnabled = true -- Enable/disable Ragdoll keybind
+Config.RagdollKeybind = 303
+-- Button numbers: https://docs.fivem.net/game-references/controls/
+
+
+---------------------
+-- Menu Categories --
+---------------------
+Config.ExpressionsEnabled = true -- Enable/disable Facial Expressions menu
+
+Config.WalkingStylesEnabled = true -- Enable/disable Walking Styles menu
+
+Config.SharedEmotesEnabled = true -- Enable/disable Shared Emotes
+
+---------------------
+--   Pro Settings  --
+---------------------
+
+Config.Update = 'true' -- Set to false if you dont want to use the update system
+
+Config.SqlKeybinding = true
+
+Config.DebugDisplay = false
+
+-- if youre using a custom Notify
+Config.CustomNotify = function(source, message)
+    TriggerClientEvent('NOTIFY_NAME', source, message) -- Replace NOTIFY_NAME with your notification event
+end
+
 
 Config.KeybindKeys = {
     ['num4'] = 108,

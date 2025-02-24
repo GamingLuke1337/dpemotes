@@ -1,5 +1,3 @@
-TriggerServerEvent("dp:CheckVersion")
-
 rightPosition = {x = 1450, y = 100}
 leftPosition = {x = 0, y = 100}
 menuPosition = {x = 0, y = 200}
@@ -299,14 +297,17 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent("dp:Update")
-AddEventHandler("dp:Update", function(state)
-    UpdateAvailable = state
-    AddInfoMenu(mainMenu)
-    _menuPool:RefreshIndex()
-end)
-
 RegisterNetEvent("dp:RecieveMenu") -- For opening the emote menu from another resource.
 AddEventHandler("dp:RecieveMenu", function()
     OpenEmoteMenu() 
+end)
+
+-- This is here to get the player data when the resource is restarted instead of having to log out and back in each time
+-- This won't set the player data too early as this only triggers when the server side is started and not the client side
+AddEventHandler('onResourceStart', function(resource)
+  if resource == GetCurrentResourceName() then
+      Wait(200)
+      PlayerData = QBCore.Functions.GetPlayerData()
+      isLoggedIn = true
+  end
 end)
