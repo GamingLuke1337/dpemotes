@@ -1,16 +1,31 @@
-# dpemotes
-Emotes / Animations for fiveM with Prop support.
 
-Installation Instructions:
+# 🎭 dpemotes – Emotes & Animations for Your FiveM Server  
 
-add dpemotes to your server.cfg
+Enhance your FiveM experience with **emotes**, including walking animations, props, and more!
 
-start dpemotes
+## 🌍 Supported Languages
 
-Other instructions please check the fivem forum thread
+- **German**
+- **English**
+- **Swedish**
 
-https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105
+## requirements
+- [oxmysql](https://github.com/overextended/oxmysql)
+- [ox_lib](https://github.com/overextended/ox_lib) optional but important for Notifys or Update Check
 
-# THIS IS FIXED DP EMOTES TO PATCH THE TELEPORT & EMOTE ALL EXPLOIT THAT IS RECENTLY ABUSED BY HACKERS
+## ⚠️ Security
 
-If you need more protection for your FiveM server feel free to check https://fiveguard.net/
+🔒 **This version addresses critical security vulnerabilities**, including the **teleport and emote-all exploit** that hackers can exploit.  
+
+Additionally, we’ve integrated several fixes contributed by other developers to improve stability and performance.  
+
+For extra protection of your FiveM server, we highly recommend **[FiveGuard](https://fiveguard.net/)**.  
+
+## 🙏 Special Thanks
+
+A huge shout-out to these developers for their contributions and fixes:
+
+[1zetsubou](https://github.com/1zetsubou)
+
+[418Gaming](https://github.com/418Gaming)
+
